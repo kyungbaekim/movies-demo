@@ -1,0 +1,42 @@
+<div ng-controller='topicsController'>
+	<div class='container'>
+		<div class='links'>
+			<a href="#/dashboard">Dashboard</a>
+			<button class='logout' ng-click='logout()'>Logout</button>
+		</div>
+		<div class='row'>
+			<h3><a href="#/users/{{topic._creator._id}}">{{topic._creator.name}}</a> posted a topic: </h3>
+			<div class='innerRow'>
+				<h4>{{topic.topic}}</h4>
+				<p>Description: {{topic.description}}</p>
+			</div>
+		</div>
+		<div class='row'>
+			<h3>Post your answer here...</h3>
+			<div class='innerRow'>
+				<form>
+					<textarea rows='3' ng-model='newPost.post'></textarea>
+					<input id='submit' type='submit' value='Post' ng-click='addPost(topic._id)'>
+				</form>
+			</div>
+	</div>
+	<div class='row'>
+		<div class='innerRow' ng-repeat="post in topic.posts | orderBy: '-createdAt'">
+			<hr>
+			<p></p>
+			<p><a href="#/users/{{post._creator._id}}">{{post._creator.name}}</a>: {{post.post}} <span id='votes'>{{post.like}}<button ng-click="like(post._id, topic._id, post._creator._id)">Like</button>
+				 {{post.dislike}}<button ng-click='dislike(post._id, topic._id)'>Dislike</button></span></p>
+			<div class='commentRow'>
+				<p ng-repeat="comment in post.comments">
+					<a href="#/users/{{comment._creator._id}}">{{comment._creator.name}}</a>: {{comment.comment}} </p>
+				<form>
+					<textarea rows='3' ng-model='newComment.comment'></textarea>
+					<input class='comments' type='submit' value='Comment' ng-click='addComment(post._id, topic._id,newComment)'>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+			
+			

@@ -1,0 +1,42 @@
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("a.youtube").YouTubePopup();	
+		})
+	</script>
+
+<div ng-controller='moviesController'>
+
+	<div class="col-md-8">
+		<form>
+			<input type='text' ng-model='newSearch.name'>
+			<input  value='Search' ng-click='searchMovies()'>
+		</form>
+		<div class='col-md-4' ng-repeat='movie in searchMovies'>
+			<p>{{movie.Title}}</p>
+			<img src="{{movie.Poster}}" height= '30%' width='60%'>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class='panel panel-default'>
+			<div class="panel-heading" style='background:black'>
+				<h4>Theaters Nearby</h4>
+				<form>
+					<input type='text' placeholder='Address, ZIP code' ng-model='newTheater.address'>
+					<input type='submit' value='Search'  ng-click='searchTheaters()'>
+				</form>
+			</div>
+			 <ul class="list-group">	
+			<div class='show' dir-paginate='show in showtimes | itemsPerPage: 15'>
+			<li class="list-group-item"><a href="#/theater/{{show.name}}">{{show.name}}</a></li>
+			</div>
+			</ul>
+				<dir-pagination-controls
+					max-size="15"
+					direction-links="true"
+					boundary-links="true" >
+				</dir-pagination-controls>
+		</div>
+	</div>
+</div>
+
+

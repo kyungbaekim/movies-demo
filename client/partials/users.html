@@ -1,0 +1,17 @@
+<div ng-controller='usersController'>
+	<div class='container'>
+		<div class='links'>
+			<a href="#/dashboard">Dashboard</a>
+			<button class='logout' ng-click='logout()'>Logout</button>
+		</div>
+		<h1>Username: {{user.name}}</h1>
+		<h3>Posted...</h3>
+		<div class='list'>
+			<ul>
+				<li>{{user.topics.length}} Topics</li>
+				<li>{{user.posts.length}} Posts</li>
+				<li>{{user.comments.length}} Comments</li>
+			</ul>
+		</div>
+	</div>
+</div>

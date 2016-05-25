@@ -1,0 +1,9 @@
+<div ng-controller='usersController'>
+	<h2>Hello</h2>
+	<h3 class='errors' ng-if='errors.length > 0'>User already exist</h3>
+	<form>
+		<p>Please enter your name to enter and share your ideas</p>
+		<p>Name: <input type='text' ng-model='newUser.name'></p>
+		<input type='submit' value='Create' ng-click='addUser()'>
+	</form>
+</div>

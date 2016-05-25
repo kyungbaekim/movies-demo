@@ -1,0 +1,12 @@
+{
+  "name": "movieTime",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "bootstrap": "^3.3.6",
+    "express": "^4.10.0",
+    "moment": "^2.13.0",
+    "mongoose": "^4.4.15",
+    "moviefone": "^0.1.0",
+    "showtimes": "^2.1.0"
+  }
+}
